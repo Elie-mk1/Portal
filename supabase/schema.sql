@@ -456,7 +456,7 @@ language sql stable as $$
     'items', coalesce((select jsonb_agg(jsonb_build_object(
         'shortlist_id', s.id, 'rank', s.rank, 'score', s.score, 'reason', s.reason, 'status', s.status,
         'status_note', s.status_note, 'approved_by', s.approved_by, 'candidate_id', c.id, 'full_name', c.full_name,
-        'location', c.location, 'headline', c.headline, 'cv_file_name', f.file_name, 'cv_file_id', f.id,
+        'location', c.location, 'headline', c.headline, 'email', c.email, 'cv_file_name', f.file_name, 'cv_file_id', f.id,
         'needs_review', c.needs_review, 'outreach_status', o.status) order by s.rank)
       from rc_shortlists s join rc_candidates c on c.id = s.candidate_id
       left join rc_cv_files f on f.id = s.cv_file_id
